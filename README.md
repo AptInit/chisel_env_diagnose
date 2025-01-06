@@ -5,6 +5,8 @@ You've done the [Chisel Bootcamp](https://github.com/freechipsproject/chisel-boo
 are ready to start your own Chisel project.  The following procedure should get you started
 with a clean running [Chisel3](https://www.chisel-lang.org/) project.
 
+Although you will soon find out that nothing works in Chisel.
+
 ## Make your own Chisel3 project
 
 ### Dependencies
@@ -72,29 +74,43 @@ git push origin main
 
 ### Did it work?
 
-You should now have a working Chisel3 project.
+> You should now have a working Chisel3 project.
+>
+> You can run the included test with:
+> ```sh
+> sbt test
+> ```
+> 
+> Alternatively, if you use Mill:
+> ```sh
+> mill chisel_env_diagnose.test
+> ```
+> 
+> You should see a whole bunch of output that ends with something like the following lines
+> ```
+> [info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+> [info] All tests passed.
+> [success] Total time: 5 s, completed Dec 16, 2020 12:18:44 PM
+> ```
+> If you see the above then...
+> 
+> ### It worked!
+> 
+> You are ready to go. We have a few recommended practices and things to do.
 
-You can run the included test with:
-```sh
-sbt test
+Except it didn't, try the suggested commands yourself to find out.
+
+More specifically, when trying `sbt test`, 
+you will find unexplainable failure modes as mentioned [here](https://github.com/chipsalliance/chisel/issues/4593).
+
+And `mill` can't pick up tests at all:
 ```
-
-Alternatively, if you use Mill:
-```sh
-mill chisel_env_diagnose.test
+[111/111] chisel_env_diagnose.test.test
+[111] Run completed in 28 milliseconds.
+[111] Total number of tests run: 0
+[111] Suites: completed 0, aborted 0
+[111] Tests: succeeded 0, failed 0, canceled 0, ignored 0, pending 0
 ```
-
-You should see a whole bunch of output that ends with something like the following lines
-```
-[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
-[info] All tests passed.
-[success] Total time: 5 s, completed Dec 16, 2020 12:18:44 PM
-```
-If you see the above then...
-
-### It worked!
-
-You are ready to go. We have a few recommended practices and things to do.
 
 * Use packages and following conventions for [structure](https://www.scala-sbt.org/1.x/docs/Directories.html) and [naming](http://docs.scala-lang.org/style/naming-conventions.html)
 * Package names should be clearly reflected in the testing hierarchy
