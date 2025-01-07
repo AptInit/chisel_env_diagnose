@@ -2,8 +2,8 @@ package gcd
 
 import chisel3._
 
-class SIntWires extends RawModule {
-  val in = IO(Input(SInt(32.W)))
-  val out = IO(Output(SInt(32.W)))
+class SIntWires(bitWidth: Int) extends RawModule {
+  val in = IO(Input(SInt(bitWidth.W)))
+  val out = IO(Output(SInt(bitWidth.W)))
   out := in
 }
