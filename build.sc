@@ -17,10 +17,10 @@ object chisel_env_diagnose extends SbtModule { m =>
     "-Xcheckinit",
   )
   override def ivyDeps = Agg(
-    ivy"org.chipsalliance::chisel:6.6.0",
+    ivy"org.chipsalliance::chisel:6.6.0+4-d9c2f285-SNAPSHOT",
   )
   override def scalacPluginIvyDeps = Agg(
-    ivy"org.chipsalliance:::chisel-plugin:6.6.0",
+    ivy"org.chipsalliance:::chisel-plugin:6.6.0+4-d9c2f285-SNAPSHOT",
   )
   object test extends SbtModuleTests with TestModule.ScalaTest {
     override def ivyDeps = m.ivyDeps() ++ Agg(
